@@ -47,7 +47,6 @@ interface NewEventForm {
   countdownDate: string
   dateLabel: string
   dateSubtitle: string
-  reserveLink: string
 }
 
 // Helper to convert file to base64
@@ -100,8 +99,7 @@ export default function AdminPanel({ onNavigate, onLogout }: AdminPanelProps) {
     category: "weekend",
     countdownDate: "",
     dateLabel: "",
-    dateSubtitle: "",
-    reserveLink: ""
+    dateSubtitle: ""
   })
   const [isUploading, setIsUploading] = useState(false)
   const [uploadError, setUploadError] = useState<string | null>(null)
@@ -204,8 +202,7 @@ export default function AdminPanel({ onNavigate, onLogout }: AdminPanelProps) {
       category: "weekend",
       countdownDate: "",
       dateLabel: "",
-      dateSubtitle: "",
-      reserveLink: ""
+      dateSubtitle: ""
     })
     setShowNewEventModal(false)
   }
@@ -227,8 +224,7 @@ export default function AdminPanel({ onNavigate, onLogout }: AdminPanelProps) {
       category: event.category,
       countdownDate: event.countdownDate || "",
       dateLabel: event.dateLabel || "",
-      dateSubtitle: event.dateSubtitle || "",
-      reserveLink: event.reserveLink || ""
+      dateSubtitle: event.dateSubtitle || ""
     })
     setShowNewEventModal(true)
   }
@@ -251,7 +247,6 @@ export default function AdminPanel({ onNavigate, onLogout }: AdminPanelProps) {
       countdownDate: newEventForm.countdownDate,
       dateLabel: newEventForm.dateLabel,
       dateSubtitle: newEventForm.dateSubtitle,
-      reserveLink: newEventForm.reserveLink,
       // Solo actualizar imagen si es weekend event
       image: editingEvent.category === "weekend" ? (newEventForm.image || editingEvent.image) : editingEvent.image
     }
@@ -278,8 +273,7 @@ export default function AdminPanel({ onNavigate, onLogout }: AdminPanelProps) {
       category: "weekend",
       countdownDate: "",
       dateLabel: "",
-      dateSubtitle: "",
-      reserveLink: ""
+      dateSubtitle: ""
     })
     setShowNewEventModal(false)
   }
@@ -311,8 +305,7 @@ export default function AdminPanel({ onNavigate, onLogout }: AdminPanelProps) {
       category: "weekend",
       countdownDate: "",
       dateLabel: "",
-      dateSubtitle: "",
-      reserveLink: ""
+      dateSubtitle: ""
     })
   }
 
@@ -1138,29 +1131,6 @@ export default function AdminPanel({ onNavigate, onLogout }: AdminPanelProps) {
                   />
                 </div>
               </div>
-
-              {/* Reserve Link - Solo para CELESTIAL */}
-              {editingEvent?.id === "celestial" && (
-                <div className="p-3 sm:p-4 bg-amber-500/5 border border-amber-500/20 rounded-lg">
-                  <div className="flex items-center gap-2 mb-3">
-                    <svg className="w-4 h-4 text-amber-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
-                      <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
-                    </svg>
-                    <label className="text-amber-500 text-[10px] sm:text-xs tracking-[0.15em] font-medium">ENLACE BOTON RESERVAR MI LUGAR</label>
-                  </div>
-                  <input
-                    type="text"
-                    value={newEventForm.reserveLink}
-                    onChange={(e) => handleNewEventChange("reserveLink", e.target.value)}
-                    placeholder="https://wa.me/573003676521 o https://tulink.com/reservar"
-                    className="w-full bg-white/5 border border-amber-500/30 rounded-lg py-2.5 sm:py-3 px-3 sm:px-4 text-white text-xs sm:text-sm placeholder:text-white/30 focus:outline-none focus:border-amber-500/50"
-                  />
-                  <p className="text-white/40 text-[9px] sm:text-[10px] mt-2">
-                    Este enlace se usara para el boton {"\""}RESERVAR MI LUGAR{"\""} en la pagina de CELESTIAL. Si esta vacio, se abrira el modal de seleccion de tickets.
-                  </p>
-                </div>
-              )}
 
               {/* Info Note */}
               {editingEvent?.category === "signature" ? (
