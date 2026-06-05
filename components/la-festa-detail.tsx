@@ -141,6 +141,15 @@ export default function LaFestaDetail({ onNavigate }: LaFestaDetailProps) {
         {/* Additional background color to fill empty space */}
         <div className="absolute inset-0 bg-black -z-10" />
         <div className="absolute inset-0 bg-linear-to-t from-black via-black/10 to-transparent" />
+        
+        {/* SOLD OUT Badge */}
+        {event?.soldOut && (
+          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
+            <div className="bg-red-600/90 px-6 sm:px-10 py-2 sm:py-3 transform -rotate-12 shadow-lg">
+              <span className="text-white text-2xl sm:text-4xl md:text-5xl font-bold tracking-wider">SOLD OUT</span>
+            </div>
+          </div>
+        )}
 
         {/* Content - Positioned at bottom */}
         <div className="relative z-10 px-3 sm:px-4 md:px-18 text-center mt-58 md:pt-52 lg:pt-72">

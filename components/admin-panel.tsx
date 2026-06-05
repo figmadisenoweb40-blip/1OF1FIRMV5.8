@@ -437,6 +437,11 @@ export default function AdminPanel({ onNavigate, onLogout }: AdminPanelProps) {
                       {/* Event Thumbnail */}
                       <div className="relative w-10 h-10 sm:w-14 sm:h-14 rounded-lg overflow-hidden bg-white/10 flex-shrink-0">
                         <img src={event.image} alt={event.name} className="w-full h-full object-cover" />
+                        {event.soldOut && (
+                          <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
+                            <span className="text-red-500 text-[6px] sm:text-[8px] font-bold tracking-wider">SOLD OUT</span>
+                          </div>
+                        )}
                         <div className="absolute bottom-0.5 right-0.5">
                           <Lock className="w-2 h-2 sm:w-3 sm:h-3 text-amber-500/70" />
                         </div>
@@ -453,6 +458,19 @@ export default function AdminPanel({ onNavigate, onLogout }: AdminPanelProps) {
                           </p>
                         )}
                       </div>
+                    </button>
+                    
+                    {/* Sold Out Toggle */}
+                    <button
+                      onClick={() => updateEvent({ ...event, soldOut: !event.soldOut })}
+                      className={`p-1 sm:p-1.5 rounded-lg transition-all flex-shrink-0 ${
+                        event.soldOut 
+                          ? "text-red-500 bg-red-500/10 hover:bg-red-500/20" 
+                          : "text-white/40 hover:text-red-500 hover:bg-red-500/10"
+                      }`}
+                      title={event.soldOut ? "Desactivar SOLD OUT" : "Activar SOLD OUT"}
+                    >
+                      <span className="text-[8px] sm:text-[9px] font-bold tracking-wider">SOLD</span>
                     </button>
                     
                     {/* Edit Button */}
@@ -508,6 +526,11 @@ export default function AdminPanel({ onNavigate, onLogout }: AdminPanelProps) {
                             <ImageIcon className="w-4 h-4 sm:w-6 sm:h-6 text-white/40" />
                           </div>
                         )}
+                        {event.soldOut && (
+                          <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
+                            <span className="text-red-500 text-[6px] sm:text-[8px] font-bold tracking-wider">SOLD OUT</span>
+                          </div>
+                        )}
                       </div>
                       
                       {/* Event Info */}
@@ -519,6 +542,17 @@ export default function AdminPanel({ onNavigate, onLogout }: AdminPanelProps) {
                     
                     {/* Action Buttons */}
                     <div className="flex items-center gap-0.5 sm:gap-1 flex-shrink-0">
+                      <button
+                        onClick={() => updateEvent({ ...event, soldOut: !event.soldOut })}
+                        className={`p-1 sm:p-1.5 rounded-lg transition-all ${
+                          event.soldOut 
+                            ? "text-red-500 bg-red-500/10 hover:bg-red-500/20" 
+                            : "text-white/40 hover:text-red-500 hover:bg-red-500/10"
+                        }`}
+                        title={event.soldOut ? "Desactivar SOLD OUT" : "Activar SOLD OUT"}
+                      >
+                        <span className="text-[8px] sm:text-[9px] font-bold tracking-wider">SOLD</span>
+                      </button>
                       <button
                         onClick={() => handleEditEvent(event)}
                         className="p-1 sm:p-1.5 rounded-lg text-white/40 hover:text-green-500 hover:bg-green-500/10 transition-all"

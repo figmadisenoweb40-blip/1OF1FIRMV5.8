@@ -21,6 +21,7 @@ export interface EventOption {
   countdownDate?: string
   dateLabel?: string
   dateSubtitle?: string
+  soldOut?: boolean
 }
 
 // LocalStorage keys

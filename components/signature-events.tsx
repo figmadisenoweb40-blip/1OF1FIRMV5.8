@@ -20,6 +20,7 @@ interface EventCardProps {
   stage?: string
   comingSoon?: boolean
   comingSoonText?: string
+  soldOut?: boolean
   onClick?: () => void
 }
 
@@ -38,6 +39,7 @@ function EventCard({
   stage,
   comingSoon,
   comingSoonText,
+  soldOut,
   onClick,
 }: EventCardProps) {
   return (
@@ -53,6 +55,12 @@ function EventCard({
             style={{ backgroundImage: `url(${image})` }}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/50 md:bg-gradient-to-t md:from-black/50 md:to-transparent" />
+          {/* SOLD OUT Badge */}
+          {soldOut && (
+            <div className="absolute inset-0 bg-black/60 flex items-center justify-center z-10">
+              <span className="text-red-500 text-lg sm:text-xl md:text-2xl font-bold tracking-wider transform -rotate-12">SOLD OUT</span>
+            </div>
+          )}
         </div>
 
         {/* Event Details */}
@@ -177,6 +185,7 @@ export default function SignatureEvents({ onNavigate }: SignatureEventsProps) {
     vipNote: event.vipNote || "",
     comingSoon: event.ticketPrice === "COMING SOON",
     comingSoonText: event.ticketPrice === "COMING SOON" ? "COMING SOON" : undefined,
+    soldOut: event.soldOut || false,
   }))
 
   return (
