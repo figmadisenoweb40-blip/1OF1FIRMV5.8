@@ -21,6 +21,7 @@ export interface EventOption {
   countdownDate?: string
   dateLabel?: string
   dateSubtitle?: string
+  reserveLink?: string
 }
 
 // LocalStorage keys
@@ -33,7 +34,7 @@ const defaultSignatureEvents: EventOption[] = [
   { id: "luna-llena", name: "LUNA LLENA", subtitle: "RUMBA DE PERREO & REGGAETON", image: "https://f005.backblazeb2.com/file/b21of1firm/background/LLback.png", category: "signature", isEditable: false, description: "Rumba de perreo y reggaeton", location: "BARRANQUILLA", ticketPrice: "$45.000 COP", vipPrice: "$500.000 COP", vipNote: "NORMALMENTE $700K - $2M", stage: "ETAPA CREYENTES", countdownDate: "2026-06-01T21:00", dateLabel: "FECHA PRÓXIMAMENTE", dateSubtitle: "PRONTO SERÁ ANUNCIADA" },
   { id: "la-festa", name: "LA FESTA", subtitle: "RUMBA EPICA - CARNAVAL", image: "https://f005.backblazeb2.com/file/b21of1firm/background/LFESTAhome.png", category: "signature", isEditable: false, description: "Rumba epica de carnaval", location: "BARRANQUILLA", ticketPrice: "$45.000 COP", vipPrice: "$500.000 COP", vipNote: "NORMALMENTE $700K - $2M", stage: "ETAPA CREYENTES", countdownDate: "2027-02-15T22:00", dateLabel: "FECHA PRÓXIMAMENTE", dateSubtitle: "PRONTO SERÁ ANUNCIADA" },
   { id: "animal", name: "ANIMAL", subtitle: "MAS SALVAJE - +14 SIN ALCOHOL", image: "https://f005.backblazeb2.com/file/b21of1firm/background/ANhome.jpg", category: "signature", isEditable: false, description: "Experiencia mas salvaje +14 sin alcohol", date: "SÁBADO 17 DE MAYO", location: "DISCOLO NIGHT CLUB, BARRANQUILLA", ticketPrice: "$45.000 COP", vipPrice: "$500.000 COP", vipNote: "NORMALMENTE $700K - $2M", stage: "ETAPA CREYENTES", countdownDate: "2027-05-17T19:00", dateLabel: "SÁBADO 17 DE MAYO", dateSubtitle: "DISCOLO NIGHT CLUB" },
-  { id: "celestial", name: "MISS 1 OF 1", subtitle: "CELESTIAL", image: "https://f005.backblazeb2.com/file/b21of1firm/background/MChome.png", category: "signature", isEditable: false, description: "Certamen de belleza con after party", location: "BARRANQUILLA", ticketPrice: "$45.000 COP", vipPrice: "$500.000 COP", vipNote: "", stage: "ETAPA CREYENTES", countdownDate: "2027-08-01T18:00", dateLabel: "COMING SOON", dateSubtitle: "" },
+  { id: "celestial", name: "MISS 1 OF 1", subtitle: "CELESTIAL", image: "https://f005.backblazeb2.com/file/b21of1firm/background/MChome.png", category: "signature", isEditable: false, description: "Certamen de belleza con after party", location: "BARRANQUILLA", ticketPrice: "45.000", vipPrice: "500.000", vipNote: "", stage: "ETAPA CREYENTES", countdownDate: "2027-08-01T18:00", dateLabel: "COMING SOON", dateSubtitle: "", reserveLink: "" },
   { id: "championship", name: "THE 1 OF 1", subtitle: "CHAMPIONSHIP", image: "https://f005.backblazeb2.com/file/b21of1firm/background/CHAMPhome.png", category: "signature", isEditable: false, description: "Torneo de artes marciales", date: "COMING SOON", location: "BARRANQUILLA", ticketPrice: "$250.000", vipPrice: "$100.000", vipNote: "", stage: "ETAPA CREYENTES", countdownDate: "2027-12-01T17:00", dateLabel: "COMING SOON", dateSubtitle: "" },
 ]
 

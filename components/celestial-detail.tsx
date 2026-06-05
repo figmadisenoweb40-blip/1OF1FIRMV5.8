@@ -212,10 +212,16 @@ export default function CelestialDetail({ onNavigate }: CelestialDetailProps) {
         </div>
       </section>
 
-      {/* CTA Button */}
+{/* CTA Button */}
       <section className="px-4 py-6 sm:py-8 max-w-lg mx-auto">
-        <button 
-          onClick={() => setIsTicketModalOpen(true)}
+        <button
+          onClick={() => {
+            if (event?.reserveLink) {
+              window.open(event.reserveLink, "_blank")
+            } else {
+              setIsTicketModalOpen(true)
+            }
+          }}
           className="w-full py-3 sm:py-4 bg-amber-500 text-black text-sm sm:text-base font-medium tracking-widest hover:bg-amber-400 transition-colors"
         >
           RESERVAR MI LUGAR
